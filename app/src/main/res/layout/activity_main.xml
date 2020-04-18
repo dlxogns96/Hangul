@@ -26,39 +26,31 @@
         android:layout_height="wrap_content"
         android:text="단어"
         android:layout_below="@id/Btn1"
-        android:id="@+id/TextView2"
+        android:id="@+id/OriginalWord"
         android:textSize="30dp"></TextView>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="========================"
-        android:layout_below="@id/TextView2"
+        android:layout_below="@id/OriginalWord"
         android:id="@+id/blind1"
         android:textSize="30dp"></TextView>
 
     <TextView
+        android:id="@+id/ChangedWord"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="자음분리"
         android:layout_below="@id/blind1"
-        android:id="@+id/TextView3"
-        android:textSize="30dp"></TextView>
+        android:text="자음분리"
+        android:textSize="20dp"></TextView>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="========================"
-        android:layout_below="@id/TextView3"
+        android:layout_below="@id/ChangedWord"
         android:id="@+id/blind2"
-        android:textSize="30dp"></TextView>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="알파벳"
-        android:layout_below="@id/blind2"
-        android:id="@+id/TextView4"
         android:textSize="30dp"></TextView>
 
 
