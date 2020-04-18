@@ -10,14 +10,14 @@
     <androidx.appcompat.widget.AppCompatEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText1"
+        android:id="@+id/EditText"
         android:textSize="30dp"
         ></androidx.appcompat.widget.AppCompatEditText>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editText1"
+        android:layout_below="@id/EditText"
         android:text="분해기"
         android:id="@+id/Btn1"
         android:textSize="30dp"></Button>

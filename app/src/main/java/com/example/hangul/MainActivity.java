@@ -11,8 +11,8 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     EditText editText1;
-    TextView TextView2;//단어
-    TextView TextView3;//자음분리
+    TextView Orignal_Word;//단어
+    TextView Changed_Word;//자음분리
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
         /** ㄱ ㄲ ㄴ ㄷ ㄸ ㄹ ㅁ ㅂ ㅃ  */
         /** ㅅ ㅆ ㅇ ㅈ ㅉ ㅊ ㅋ ㅌ ㅍ ㅎ  */
         public static String[] Jumja_ChoSung = {
-         "000100" , "000100000001" , "100100", "010100" , "010100000001" , "000010", "100010", "000110" , "000110000001",
-         "000001", "000001000001","000000", "000101", "000101000001", "000011", "110100", "110010", "100110", "010110"
+         "000100" , "000001000100" , "100100", "010100" , "000001010100" , "000010", "100010", "000110" , "000001000110",
+         "000001", "000001000001","000000", "000101", "000001000101", "000011", "110100", "110010", "100110", "010110"
         };
 
         /** 중성 - 가(ㅏ), 야(ㅑ), 뺨(ㅑ)*/
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
         /** 가 (까) 나 다 (따) ^라^ 마 바 (빠) 사 (싸) ^아^ 자 (짜) ^차^ 카 타 파 하 */
          public static String[] Jumja_Yakja_Chosung = {
-            "110101" ,"Error", "100100" , "010100","Error", "000010110001", " 100010", "000110","Error","111000","Error","110001","000101","Error","000011110001","110100","110010","100110","010110"
+            "110101" ,"000001110101", "100100" , "010100","000001010100", "000010110001", " 100010", "000110","000001000110","111000","000001111000","110001","000101","000001000101","000011110001","110100","110010","100110","010110"
         };
         /**  억 언 얼 연 열 영 */
         /**  옥 온 옹 운 울 은 을 인 */
@@ -98,19 +98,17 @@ public class MainActivity extends AppCompatActivity {
 
         public void ChangeTextView1(){
 
-            editText1 = (EditText)findViewById(R.id.editText1);
-            TextView2= (TextView)findViewById(R.id.OriginalWord);
-            TextView3= (TextView)findViewById(R.id.ChangedWord);
+            editText1 = (EditText)findViewById(R.id.EditText);
+            Orignal_Word = (TextView)findViewById(R.id.OriginalWord);
+            Changed_Word = (TextView)findViewById(R.id.ChangedWord);
 
 
             String str1= editText1.getText().toString();
 
             String word 		= str1;		// 분리할 단어
-            String result		= "";									// 결과 저장할 변수
             String result2      = "";
-            String resultJumja  = "";                                   // 점자 결과 저장할 변수
 
-            int checkYakja = 0;
+            int checkYakja = 0; // 약자 사용 체크 용 변수
             for (int i = 0; i < word.length(); i++) {
 
                 /*  한글자씩 읽어들인다. */
@@ -125,15 +123,12 @@ public class MainActivity extends AppCompatActivity {
                     int jungsung = chars % (21 * 28) / 28;
                     int jongsung = chars % (21 * 28) % 28;
 
-
-                    /* A-2. result에 담기 */
-                    result = result + arrChoSung[chosung] + arrJungSung[jungsung];
-
                     /* <것>  */
                     if (Jumja_ChoSung[chosung] == "000100" && Jumja_JungSung[jungsung] == "011100" && Jumja_JongSung[jongsung] == "001000") {
                         checkYakja =1;
                         result2 = result2 + "것" + ">>" + "000111011100" + "\n";
                     }
+
                      /* < 억 언 얼 > */
                     if (Jumja_JungSung[jungsung] == "011100" && Jumja_JongSung[jongsung] == "100000" ) {
                         /*  <억>   */
@@ -247,8 +242,23 @@ public class MainActivity extends AppCompatActivity {
                                 result2 = result2 + arrJongSung[jongsung] + "(종성)>>" + Jumja_JongSung[jongsung] + "\n";
                         }
                     }  // 초성이 'ㄹ, ㅊ' 일경우
+
+                            else if (Jumja_ChoSung[chosung] == "000001000100" || Jumja_ChoSung[chosung] == "000001010100" || Jumja_ChoSung[chosung] == "000001000110" || Jumja_ChoSung[chosung] == "000001000001" || Jumja_ChoSung[chosung] == "000001000101") {
+                                /* 초성이 'ㄲ, ㄸ, ㅃ, ㅆ, ㅉ 일경우 */
+                                if (Jumja_JungSung[jungsung] == "110001") {
+                                    /* 중성이 'ㅏ' 일경우 < 까, 따, 빠, 싸, 짜 > */
+                                    result2 = result2 + arrChoSung[chosung] + "+" + arrJungSung[jungsung] + ">>" + Jumja_Yakja_Chosung[chosung] + "\n";
+                                } else {
+                                    result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + arrJungSung[jungsung] + ">>" + Jumja_JungSung[jungsung] + "\n";
+                                }
+                                if (jongsung != 0x0000) {
+                                    /* A-3. 종성이 존재할경우 result에 담는다 */
+                                    result2 = result2 + arrJongSung[jongsung] + "(종성)>>" + Jumja_JongSung[jongsung] + "\n";
+                                }
+                            }  // 초성이 'ㄹ, ㅊ' 일경우
+
                             else {
-                                /** 초성이 'ㄱ, ㄲ, ㄴ, ㄷ, ㄸ, ㅁ, ㅂ, ㅃ, ㅅ, ㅆ , ㅈ, ㅉ, ㅋ, ㅌ, ㅍ, ㅎ' 일경우 */
+                                /** 초성이 'ㄱ, ㄴ, ㄷ, ㅁ, ㅂ, ㅅ, ㅈ, ㅋ, ㅌ, ㅍ, ㅎ' 일경우 */
                                 result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + arrJungSung[jungsung] + ">>" + Jumja_JungSung[jungsung] + "\n";
 
                                 if (jongsung != 0x0000) {
@@ -258,17 +268,15 @@ public class MainActivity extends AppCompatActivity {
                             }
                     } // 초성이 나머지 일경우
                 }
-
                 } else {
                     /* B. 한글이 아니거나 자음만 있을경우 */
                     /* 자음분리 */
-                    result = result + ((char)(chars + 0xAC00));
+                    result2 = result2 + ((char)(chars + 0xAC00));
                 }//if
-
             }//for
 
-            TextView2.setText(word);
-            TextView3.setText(result2);
+            Orignal_Word.setText(word);
+            Changed_Word.setText(result2);
         }
     }
 
