@@ -10,8 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.InputStream;
 
 public class Fragment_1 extends Fragment {
 
@@ -100,7 +103,10 @@ public class Fragment_1 extends Fragment {
             };
 
     /** 0 1 2 3 4 5 6 7 8 9 */
-    public static char[] arrNumber = { 0x49,0x50,0x51,0x52,0x53,0x54,0x55,0x56,0x57 };
+    public static String[] arrNumber = { "0","1","2","3","4","5","6","7","8","9"};
+    public static char[] arrNumber2 = { 0x48,0x49,0x50,0x51,0x52,0x53,0x54,0x55,0x56,0x57};
+
+
 
     /** 0 1 2 3 4 5 6 7 8 9   */
     public static String[] Jumja_Yakja_Number = {
@@ -122,170 +128,209 @@ public class Fragment_1 extends Fragment {
         String result2      = "";
 
         int checkYakja = 0; // 약자 사용 체크 용 변수
+        int checkNumber = 0; // 숫자 사용 체크 용 변수
 
         for (int i = 0; i < word.length(); i++) {
 
+            checkYakja = 0;
+            checkNumber= 0;
             /*  한글자씩 읽어들인다. */
             char chars = (char) (word.charAt(i) - 0xAC00);
 
-            char chars2 = word.charAt(i);
+            char charsNumber = word.charAt(i);
 
-            if(Character.isDigit(chars)==true){
+                if (Character.getNumericValue(charsNumber) >= 0 && Character.getNumericValue(charsNumber) <= 9) {
+                    // Character.getNumericValue(charsNumber);
+                    int check3 = Character.getNumericValue(charsNumber)%10;
 
-                result2 = result2 + Character.getNumericValue(chars2)+ ">>" + "\n";
-
-                //Character.getNumericValue(chars);
-                Changed_Word.setText(result2);
-            }
-
-
-            checkYakja = 0;
-            if (chars >= 0 && chars <= 11172) {
-                /* A. 자음과 모음이 합쳐진 글자인경우 */
-
-                /* A-1. 초/중/종성 분리 */
-                int chosung = chars / (21 * 28);
-                int jungsung = chars % (21 * 28) / 28;
-                int jongsung = chars % (21 * 28) % 28;
-
-                /* <것>  */
-                if (Jumja_ChoSung[chosung] == "000100" && Jumja_JungSung[jungsung] == "011100" && Jumja_JongSung[jongsung] == "001000") {
-                    checkYakja =1;
-                    result2 = result2 + "것" + ">>" + "000111011100" + "\n";
+                       if(check3 ==0 ){
+                           result2 = result2 +"0"+ ">>"+Jumja_Yakja_Number[check3] +"\n";
+                           checkNumber= 1;
+                           Changed_Word.setText(result2);
+                       }else if(check3 ==1){
+                           result2 = result2 +"1"+ ">>"+Jumja_Yakja_Number[check3]+ "\n";
+                           checkNumber= 1;
+                           Changed_Word.setText(result2);
+                       }else if(check3 ==2){
+                           result2 = result2 +"2"+ ">>"+Jumja_Yakja_Number[check3]+ "\n";
+                           checkNumber= 1;
+                           Changed_Word.setText(result2);
+                       }else if(check3 ==3){
+                           result2 = result2 +"3"+ ">>"+Jumja_Yakja_Number[check3]+ "\n";
+                           checkNumber= 1;
+                           Changed_Word.setText(result2);
+                       }else if(check3 ==4){
+                           result2 = result2 +"4"+ ">>"+Jumja_Yakja_Number[check3]+ "\n";
+                           checkNumber= 1;
+                           Changed_Word.setText(result2);
+                       }else if(check3 ==5){
+                           result2 = result2 +"5"+ ">>"+Jumja_Yakja_Number[check3]+ "\n";
+                           checkNumber= 1;
+                           Changed_Word.setText(result2);
+                       }else if(check3 ==6){
+                           result2 = result2 +"6"+ ">>"+Jumja_Yakja_Number[check3]+ "\n";
+                           checkNumber= 1;
+                           Changed_Word.setText(result2);
+                       }else if(check3 ==7){
+                           result2 = result2 +"7"+ ">>"+Jumja_Yakja_Number[check3]+ "\n";
+                           checkNumber= 1;
+                           Changed_Word.setText(result2);
+                       }else if(check3 ==8){
+                           result2 = result2 +"8"+ ">>"+Jumja_Yakja_Number[check3]+ "\n";
+                           checkNumber= 1;
+                           Changed_Word.setText(result2);
+                       }else if(check3 ==9){
+                           result2 = result2 +"9"+ ">>"+Jumja_Yakja_Number[check3]+ "\n";
+                           checkNumber= 1;
+                           Changed_Word.setText(result2);
+                       }
                 }
 
-                /* < 억 언 얼 > */
-                if (Jumja_JungSung[jungsung] == "011100" && Jumja_JongSung[jongsung] == "100000" ) {
-                    /*  <억>   */
-                    checkYakja =1;
-                    result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅓㄱ" + ">>" + "100111" + "\n";
-                } else if (Jumja_JungSung[jungsung] == "011100" && Jumja_JongSung[jongsung] == "010010") {
-                    /*  <언>   */
-                    checkYakja =1;
-                    result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅓㄴ" + ">>" + "011111" + "\n";
-                } else if (Jumja_JungSung[jungsung] == "011100" && Jumja_JongSung[jongsung] == "010000") {
-                    /*  <얼>   */
-                    checkYakja =1;
-                    result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅓㄹ" + ">>" + "011110" + "\n";
-                }
+if(checkNumber == 0) {
+    if (chars >= 0 && chars <= 11172) {
+        /* A. 자음과 모음이 합쳐진 글자인경우 */
 
-                /* < 연 열 영 > */
-                if (Jumja_JungSung[jungsung] == "100011" && Jumja_JongSung[jongsung] == "010010") {
-                    /*  <연>   */
-                    checkYakja =1;
-                    result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅕㄴ" + ">>" + "100001" + "\n";
-                } else if (Jumja_JungSung[jungsung] == "100011" && Jumja_JongSung[jongsung] == "010000") {
-                    /*  <열>  , 종성이 ㅕ 일경우  */
-                    checkYakja =1;
-                    result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅕㄹ" + ">>" + "110011" + "\n";
-                } else if (Jumja_JungSung[jungsung] == "100011" && Jumja_JongSung[jongsung] == "011011") {
-                    /*  <영>  , 종성이  일경우  */
-                    checkYakja =1;
-                    result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅕㅇ" + ">>" + "110111" + "\n";
-                }
+        /* A-1. 초/중/종성 분리 */
+        int chosung = chars / (21 * 28);
+        int jungsung = chars % (21 * 28) / 28;
+        int jongsung = chars % (21 * 28) % 28;
 
-                /* < 옥 온 옹 > */
-                if (Jumja_JungSung[jungsung] == "101001" && Jumja_JongSung[jongsung] == "100000") {
-                    /*  <옥>    */
-                    checkYakja =1;
-                    result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅗㄱ" + ">>" + "101101" + "\n";
-                } else if (Jumja_JungSung[jungsung] == "101001" && Jumja_JongSung[jongsung] == "010010") {
-                    /*  <온>    */
-                    checkYakja =1;
-                    result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅗㄴ" + ">>" + "111011" + "\n";
-                } else if (Jumja_JungSung[jungsung] == "101001" && Jumja_JongSung[jongsung] == "011011") {
-                    /*  <옹>    */
-                    checkYakja =1;
-                    result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅗㅇ" + ">>" + "111111" + "\n";
-                }
+        /* <것>  */
+        if (Jumja_ChoSung[chosung] == "000100" && Jumja_JungSung[jungsung] == "011100" && Jumja_JongSung[jongsung] == "001000") {
+            checkYakja = 1;
+            result2 = result2 + "것" + ">>" + "000111011100" + "\n";
+        }
 
-                /* < 운 울 > */
-                if (Jumja_JungSung[jungsung] == "101100" && Jumja_JongSung[jongsung] == "010010") {
-                    /*  <운>    */
-                    checkYakja =1;
-                    result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅜㄴ" + ">>" + "110110" + "\n";
-                } else if (Jumja_JungSung[jungsung] == "101100" && Jumja_JongSung[jongsung] == "010000") {
-                    /*  <울>    */
-                    checkYakja =1;
-                    result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅜㄹ" + ">>" + "111101" + "\n";
-                }
+        /* < 억 언 얼 > */
+        if (Jumja_JungSung[jungsung] == "011100" && Jumja_JongSung[jongsung] == "100000") {
+            /*  <억>   */
+            checkYakja = 1;
+            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅓㄱ" + ">>" + "100111" + "\n";
+        } else if (Jumja_JungSung[jungsung] == "011100" && Jumja_JongSung[jongsung] == "010010") {
+            /*  <언>   */
+            checkYakja = 1;
+            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅓㄴ" + ">>" + "011111" + "\n";
+        } else if (Jumja_JungSung[jungsung] == "011100" && Jumja_JongSung[jongsung] == "010000") {
+            /*  <얼>   */
+            checkYakja = 1;
+            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅓㄹ" + ">>" + "011110" + "\n";
+        }
 
-                /* < 은 을 > */
-                if (Jumja_JungSung[jungsung] == "010101" && Jumja_JongSung[jongsung] == "010010") {
-                    /*  <은>    */
-                    checkYakja =1;
-                    result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅡㄴ" + ">>" + "101011" + "\n";
-                } else if (Jumja_JungSung[jungsung] == "010101" && Jumja_JongSung[jongsung] == "010000") {
-                    /*  <을>    */
-                    checkYakja =1;
-                    result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅡㄹ" + ">>" + "011101" + "\n";
-                }
+        /* < 연 열 영 > */
+        if (Jumja_JungSung[jungsung] == "100011" && Jumja_JongSung[jongsung] == "010010") {
+            /*  <연>   */
+            checkYakja = 1;
+            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅕㄴ" + ">>" + "100001" + "\n";
+        } else if (Jumja_JungSung[jungsung] == "100011" && Jumja_JongSung[jongsung] == "010000") {
+            /*  <열>  , 종성이 ㅕ 일경우  */
+            checkYakja = 1;
+            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅕㄹ" + ">>" + "110011" + "\n";
+        } else if (Jumja_JungSung[jungsung] == "100011" && Jumja_JongSung[jongsung] == "011011") {
+            /*  <영>  , 종성이  일경우  */
+            checkYakja = 1;
+            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅕㅇ" + ">>" + "110111" + "\n";
+        }
 
-                /* < 인 > */
-                else if (Jumja_JungSung[jungsung] == "101010" && Jumja_JongSung[jongsung] == "010010") {
-                    /*  <인>  , 중성이 'ㅣ',  종성이 'ㄴ' 일경우  */
-                    checkYakja =1;
-                    result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅣㄴ" + ">>" + "111110" + "\n";
-                }
+        /* < 옥 온 옹 > */
+        if (Jumja_JungSung[jungsung] == "101001" && Jumja_JongSung[jongsung] == "100000") {
+            /*  <옥>    */
+            checkYakja = 1;
+            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅗㄱ" + ">>" + "101101" + "\n";
+        } else if (Jumja_JungSung[jungsung] == "101001" && Jumja_JongSung[jongsung] == "010010") {
+            /*  <온>    */
+            checkYakja = 1;
+            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅗㄴ" + ">>" + "111011" + "\n";
+        } else if (Jumja_JungSung[jungsung] == "101001" && Jumja_JongSung[jongsung] == "011011") {
+            /*  <옹>    */
+            checkYakja = 1;
+            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅗㅇ" + ">>" + "111111" + "\n";
+        }
+
+        /* < 운 울 > */
+        if (Jumja_JungSung[jungsung] == "101100" && Jumja_JongSung[jongsung] == "010010") {
+            /*  <운>    */
+            checkYakja = 1;
+            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅜㄴ" + ">>" + "110110" + "\n";
+        } else if (Jumja_JungSung[jungsung] == "101100" && Jumja_JongSung[jongsung] == "010000") {
+            /*  <울>    */
+            checkYakja = 1;
+            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅜㄹ" + ">>" + "111101" + "\n";
+        }
+
+        /* < 은 을 > */
+        if (Jumja_JungSung[jungsung] == "010101" && Jumja_JongSung[jongsung] == "010010") {
+            /*  <은>    */
+            checkYakja = 1;
+            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅡㄴ" + ">>" + "101011" + "\n";
+        } else if (Jumja_JungSung[jungsung] == "010101" && Jumja_JongSung[jongsung] == "010000") {
+            /*  <을>    */
+            checkYakja = 1;
+            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅡㄹ" + ">>" + "011101" + "\n";
+        }
+
+        /* < 인 > */
+        else if (Jumja_JungSung[jungsung] == "101010" && Jumja_JongSung[jongsung] == "010010") {
+            /*  <인>  , 중성이 'ㅣ',  종성이 'ㄴ' 일경우  */
+            checkYakja = 1;
+            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅣㄴ" + ">>" + "111110" + "\n";
+        } else {
+            if (checkYakja == 0) {
+                if (Jumja_ChoSung[chosung] == "000000") {
+                    /** 초성이  ' ㅇ ' 일경우 */
+                    result2 = result2 + arrChoSung[chosung] + "+" + arrJungSung[jungsung] + ">>" + Jumja_JungSung[jungsung] + "\n";
+                    if (jongsung != 0x0000) {
+                        /* A-3. 종성이 존재할경우 result에 담는다 */
+                        result2 = result2 + arrJongSung[jongsung] + "(종성)>>" + Jumja_JongSung[jongsung] + "\n";
+                    }
+                } // 초성이 'ㅇ' 일경우
+
+                else if (Jumja_ChoSung[chosung] == "000010" || Jumja_ChoSung[chosung] == "000011") {
+                    /* 초성이 'ㄹ, ㅊ' 일경우 */
+                    if (Jumja_JungSung[jungsung] == "110001") {
+                        /* 중성이 'ㅏ' 일경우 < 라, 차 > */
+                        result2 = result2 + arrChoSung[chosung] + "+" + arrJungSung[jungsung] + ">>" + Jumja_Yakja_Chosung[chosung] + "\n";
+                    } else {
+                        result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + arrJungSung[jungsung] + ">>" + Jumja_JungSung[jungsung] + "\n";
+                    }
+                    if (jongsung != 0x0000) {
+                        /* A-3. 종성이 존재할경우 result에 담는다 */
+                        result2 = result2 + arrJongSung[jongsung] + "(종성)>>" + Jumja_JongSung[jongsung] + "\n";
+                    }
+                }  // 초성이 'ㄹ, ㅊ' 일경우
+
+                else if (Jumja_ChoSung[chosung] == "000001000100" || Jumja_ChoSung[chosung] == "000001010100" || Jumja_ChoSung[chosung] == "000001000110" || Jumja_ChoSung[chosung] == "000001000001" || Jumja_ChoSung[chosung] == "000001000101") {
+                    /* 초성이 'ㄲ, ㄸ, ㅃ, ㅆ, ㅉ 일경우 */
+                    if (Jumja_JungSung[jungsung] == "110001") {
+                        /* 중성이 'ㅏ' 일경우 < 까, 따, 빠, 싸, 짜 > */
+                        result2 = result2 + arrChoSung[chosung] + "+" + arrJungSung[jungsung] + ">>" + Jumja_Yakja_Chosung[chosung] + "\n";
+                    } else {
+                        result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + arrJungSung[jungsung] + ">>" + Jumja_JungSung[jungsung] + "\n";
+                    }
+                    if (jongsung != 0x0000) {
+                        /* A-3. 종성이 존재할경우 result에 담는다 */
+                        result2 = result2 + arrJongSung[jongsung] + "(종성)>>" + Jumja_JongSung[jongsung] + "\n";
+                    }
+                }  // 초성이 'ㄹ, ㅊ' 일경우
 
                 else {
-                    if(checkYakja ==0){
-                        if (Jumja_ChoSung[chosung] == "000000") {
-                            /** 초성이  ' ㅇ ' 일경우 */
-                                result2 = result2 + arrChoSung[chosung] +"+" + arrJungSung[jungsung] + ">>" + Jumja_JungSung[jungsung] + "\n";
-                                if (jongsung != 0x0000) {
-                                    /* A-3. 종성이 존재할경우 result에 담는다 */
-                                    result2 = result2 + arrJongSung[jongsung] + "(종성)>>" + Jumja_JongSung[jongsung] + "\n";
-                                }
-                        } // 초성이 'ㅇ' 일경우
+                    /** 초성이 'ㄱ, ㄴ, ㄷ, ㅁ, ㅂ, ㅅ, ㅈ, ㅋ, ㅌ, ㅍ, ㅎ' 일경우 */
+                    result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + arrJungSung[jungsung] + ">>" + Jumja_JungSung[jungsung] + "\n";
 
-                        else if (Jumja_ChoSung[chosung] == "000010" || Jumja_ChoSung[chosung] == "000011") {
-                            /* 초성이 'ㄹ, ㅊ' 일경우 */
-                            if (Jumja_JungSung[jungsung] == "110001") {
-                                /* 중성이 'ㅏ' 일경우 < 라, 차 > */
-                                result2 = result2 + arrChoSung[chosung] + "+" + arrJungSung[jungsung] + ">>" + Jumja_Yakja_Chosung[chosung] + "\n";
-                            } else {
-                                result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + arrJungSung[jungsung] + ">>" + Jumja_JungSung[jungsung] + "\n";
-                            }
-                            if (jongsung != 0x0000) {
-                                /* A-3. 종성이 존재할경우 result에 담는다 */
-                                result2 = result2 + arrJongSung[jongsung] + "(종성)>>" + Jumja_JongSung[jongsung] + "\n";
-                            }
-                        }  // 초성이 'ㄹ, ㅊ' 일경우
-
-                        else if (Jumja_ChoSung[chosung] == "000001000100" || Jumja_ChoSung[chosung] == "000001010100" || Jumja_ChoSung[chosung] == "000001000110" || Jumja_ChoSung[chosung] == "000001000001" || Jumja_ChoSung[chosung] == "000001000101") {
-                            /* 초성이 'ㄲ, ㄸ, ㅃ, ㅆ, ㅉ 일경우 */
-                            if (Jumja_JungSung[jungsung] == "110001") {
-                                /* 중성이 'ㅏ' 일경우 < 까, 따, 빠, 싸, 짜 > */
-                                result2 = result2 + arrChoSung[chosung] + "+" + arrJungSung[jungsung] + ">>" + Jumja_Yakja_Chosung[chosung] + "\n";
-                            } else {
-                                result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + arrJungSung[jungsung] + ">>" + Jumja_JungSung[jungsung] + "\n";
-                            }
-                            if (jongsung != 0x0000) {
-                                /* A-3. 종성이 존재할경우 result에 담는다 */
-                                result2 = result2 + arrJongSung[jongsung] + "(종성)>>" + Jumja_JongSung[jongsung] + "\n";
-                            }
-                        }  // 초성이 'ㄹ, ㅊ' 일경우
-
-                        else {
-                            /** 초성이 'ㄱ, ㄴ, ㄷ, ㅁ, ㅂ, ㅅ, ㅈ, ㅋ, ㅌ, ㅍ, ㅎ' 일경우 */
-                            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + arrJungSung[jungsung] + ">>" + Jumja_JungSung[jungsung] + "\n";
-
-                            if (jongsung != 0x0000) {
-                                /* A-3. 종성이 존재할경우 result에 담는다 */
-                                result2 = result2 + arrJongSung[jongsung] + "(종성)>>" + Jumja_JongSung[jongsung] + "\n";
-                            }
-                        }
-                    } // 초성이 나머지 일경우
+                    if (jongsung != 0x0000) {
+                        /* A-3. 종성이 존재할경우 result에 담는다 */
+                        result2 = result2 + arrJongSung[jongsung] + "(종성)>>" + Jumja_JongSung[jongsung] + "\n";
+                    }
                 }
-            } else {
-                /* B. 한글이 아니거나 자음만 있을경우 */
-                /* 자음분리 */
-                result2 = result2 + ((char)(chars + 0xAC00));
-            }//if
+            } // 초성이 나머지 일경우
+        }
+    } else {
+        /* B. 한글이 아니거나 자음만 있을경우 */
+        result2 = result2 + ((char) (chars + 0xAC00));
+    }//if
+}
         }//for
 
         Orignal_Word.setText(word);
-      //  Changed_Word.setText(result2);
+        Changed_Word.setText(result2);
     }
 }
