@@ -38,7 +38,7 @@
         android:textSize="30dp"></TextView>
 
     <TextView
-        android:id="@+id/ChangedWord"
+        android:id="@+id/ChangedWord_word"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/blind1"
@@ -49,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="========================"
-        android:layout_below="@id/ChangedWord"
+        android:layout_below="@id/ChangedWord_word"
         android:id="@+id/blind2"
         android:textSize="30dp"></TextView>
 

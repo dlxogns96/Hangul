@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
             editText1 = (EditText)findViewById(R.id.EditText);
             Orignal_Word = (TextView)findViewById(R.id.OriginalWord);
-            Changed_Word = (TextView)findViewById(R.id.ChangedWord);
+            Changed_Word = (TextView)findViewById(R.id.ChangedWord_word);
 
 
             String str1= editText1.getText().toString();
