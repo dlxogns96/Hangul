@@ -13,9 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.Timer;
-import java.util.TimerTask;
+import android.widget.ViewFlipper;
 
 public class Fragment_1 extends Fragment {
 
@@ -30,19 +28,21 @@ public class Fragment_1 extends Fragment {
 
     TextView Jumja_Word;
 
-    ImageView[] Jumja;
-    ImageView Jumja1; // 점자 표시
-    ImageView Jumja2;
-    ImageView Jumja3;
-    ImageView Jumja4;
-    ImageView Jumja5;
-    ImageView Jumja6;
-    ImageView Jumja7;
-    ImageView Jumja8;
-    ImageView Jumja9;
-    ImageView Jumja10;
-    ImageView Jumja11;
-    ImageView Jumja12;
+
+    ViewFlipper v_fllipper_jumja_0;
+    ViewFlipper v_fllipper_jumja_1;
+    ViewFlipper v_fllipper_jumja_2;
+    ViewFlipper v_fllipper_jumja_3;
+    ViewFlipper v_fllipper_jumja_4;
+    ViewFlipper v_fllipper_jumja_5;
+    ViewFlipper v_fllipper_jumja_6;
+    ViewFlipper v_fllipper_jumja_7;
+    ViewFlipper v_fllipper_jumja_8;
+    ViewFlipper v_fllipper_jumja_9;
+    ViewFlipper v_fllipper_jumja_10;
+    ViewFlipper v_fllipper_jumja_11;
+
+
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_fragment_1, container, false);
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.activity_fragment_1, container, false);
@@ -53,6 +53,7 @@ public class Fragment_1 extends Fragment {
             public void onClick(View v) {
                 try {
                     ChangeTextView1();
+
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -147,22 +148,6 @@ public class Fragment_1 extends Fragment {
         Changed_Word = (TextView)getActivity().findViewById(R.id.ChangedWord_word);
 
         Jumja_Word = (TextView)getActivity().findViewById(R.id.JumjaWord);
-        Jumja1 = (ImageView)getActivity().findViewById(R.id.Jumja1) ;
-        Jumja2 = (ImageView)getActivity().findViewById(R.id.Jumja2) ;
-        Jumja3 = (ImageView)getActivity().findViewById(R.id.Jumja3) ;
-        Jumja4 = (ImageView)getActivity().findViewById(R.id.Jumja4) ;
-        Jumja5 = (ImageView)getActivity().findViewById(R.id.Jumja5) ;
-        Jumja6 = (ImageView)getActivity().findViewById(R.id.Jumja6) ;
-        Jumja7 = (ImageView)getActivity().findViewById(R.id.Jumja7) ;
-        Jumja8 = (ImageView)getActivity().findViewById(R.id.Jumja8) ;
-        Jumja9 = (ImageView)getActivity().findViewById(R.id.Jumja9) ;
-        Jumja10 = (ImageView)getActivity().findViewById(R.id.Jumja10) ;
-        Jumja11 = (ImageView)getActivity().findViewById(R.id.Jumja11) ;
-        Jumja12 = (ImageView)getActivity().findViewById(R.id.Jumja12) ;
-
-
-        Jumja = new ImageView[]{Jumja1, Jumja2,Jumja3,Jumja4,Jumja5,Jumja6,Jumja7,Jumja8,Jumja9,Jumja10,Jumja11,Jumja12 };
-
 
          str1= editText1.getText().toString();
 
@@ -260,17 +245,17 @@ if(checkNumber == 0) {
             /*  <억>   */
             checkYakja = 1;
             result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅓㄱ" + ">>" + "100111" + "\n";
-            result2_Jumja = result2_Jumja +"100111" + "/";
+            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"100111" + "/";
         } else if (Jumja_JungSung[jungsung] == "011100" && Jumja_JongSung[jongsung] == "010010") {
             /*  <언>   */
             checkYakja = 1;
             result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅓㄴ" + ">>" + "011111" + "\n";
-            result2_Jumja = result2_Jumja +"011111" + "/";
+            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"011111" + "/";
         } else if (Jumja_JungSung[jungsung] == "011100" && Jumja_JongSung[jongsung] == "010000") {
             /*  <얼>   */
             checkYakja = 1;
             result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅓㄹ" + ">>" + "011110" + "\n";
-            result2_Jumja = result2_Jumja +"011110" + "/";
+            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"011110" + "/";
         }
 
 /* < 연 열 영 > */
@@ -278,17 +263,17 @@ if(checkNumber == 0) {
             /*  <연>   */
             checkYakja = 1;
             result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅕㄴ" + ">>" + "100001" + "\n";
-            result2_Jumja = result2_Jumja +"100001" + "/";
+            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"100001" + "/";
         } else if (Jumja_JungSung[jungsung] == "100011" && Jumja_JongSung[jongsung] == "010000") {
             /*  <열>  , 종성이 ㅕ 일경우  */
             checkYakja = 1;
             result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅕㄹ" + ">>" + "110011" + "\n";
-            result2_Jumja = result2_Jumja +"110011" + "/";
+            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"110011" + "/";
         } else if (Jumja_JungSung[jungsung] == "100011" && Jumja_JongSung[jongsung] == "011011") {
             /*  <영>  , 종성이  일경우  */
             checkYakja = 1;
             result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅕㅇ" + ">>" + "110111" + "\n";
-            result2_Jumja = result2_Jumja +"110111" + "/";
+            result2_Jumja = result2_Jumja + Jumja_ChoSung[chosung]+ "/" +"110111" + "/";
         }
 
  /* < 옥 온 옹 > */
@@ -296,17 +281,17 @@ if(checkNumber == 0) {
             /*  <옥>    */
             checkYakja = 1;
             result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅗㄱ" + ">>" + "101101" + "\n";
-            result2_Jumja = result2_Jumja +"101101" + "/";
+            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"101101" + "/";
         } else if (Jumja_JungSung[jungsung] == "101001" && Jumja_JongSung[jongsung] == "010010") {
             /*  <온>    */
             checkYakja = 1;
             result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅗㄴ" + ">>" + "111011" + "\n";
-            result2_Jumja = result2_Jumja +"111011" + "/";
+            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"111011" + "/";
         } else if (Jumja_JungSung[jungsung] == "101001" && Jumja_JongSung[jongsung] == "011011") {
             /*  <옹>    */
             checkYakja = 1;
             result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅗㅇ" + ">>" + "111111" + "\n";
-            result2_Jumja = result2_Jumja +"111111" + "/";
+            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"111111" + "/";
         }
 
  /* < 운 울 > */
@@ -314,12 +299,12 @@ if(checkNumber == 0) {
             /*  <운>    */
             checkYakja = 1;
             result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅜㄴ" + ">>" + "110110" + "\n";
-            result2_Jumja = result2_Jumja +"110110" + "/";
+            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"110110" + "/";
         } else if (Jumja_JungSung[jungsung] == "101100" && Jumja_JongSung[jongsung] == "010000") {
             /*  <울>    */
             checkYakja = 1;
             result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅜㄹ" + ">>" + "111101" + "\n";
-            result2_Jumja = result2_Jumja +"111101" + "/";
+            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"111101" + "/";
         }
 
  /* < 은 을 > */
@@ -327,19 +312,19 @@ if(checkNumber == 0) {
             /*  <은>    */
             checkYakja = 1;
             result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅡㄴ" + ">>" + "101011" + "\n";
-            result2_Jumja = result2_Jumja +"101011" + "/";
+            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"101011" + "/";
         } else if (Jumja_JungSung[jungsung] == "010101" && Jumja_JongSung[jongsung] == "010000") {
             /*  <을>    */
             checkYakja = 1;
             result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅡㄹ" + ">>" + "011101" + "\n";
-            result2_Jumja = result2_Jumja +"011101" + "/";
+            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"011101" + "/";
         }
 
 /* < 인 > */
         else if (Jumja_JungSung[jungsung] == "101010" && Jumja_JongSung[jongsung] == "010010") {
             checkYakja = 1;
             result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅣㄴ" + ">>" + "111110" + "\n";
-            result2_Jumja = result2_Jumja +"111110" + "/";
+            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"111110" + "/";
         } else {
 /* 약자 외 */
             if (checkYakja == 0) {
@@ -412,38 +397,404 @@ if(checkNumber == 0) {
         Changed_Word.setText(result2);
         Jumja_Word.setText(result2_Jumja);
 
-
-        Jumja_Change_Word(result2_Jumja); //그림으로 표현
+       Jumja_Change_Word(result2_Jumja); //그림으로 표현
 
     }
 
-    public void Jumja_Change_Word(String str){
-        String [] str2 = str.split("/");
+    public void Jumja_Change_Word( String str){
+        String[] str2 = str.split("/");
+        String[] str4 = new String[str2.length];
 
+
+
+        v_fllipper_jumja_0 =getActivity().findViewById(R.id.flipper_jumja0);
+        v_fllipper_jumja_1 =getActivity().findViewById(R.id.flipper_jumja1);
+        v_fllipper_jumja_2 =getActivity().findViewById(R.id.flipper_jumja2);
+        v_fllipper_jumja_3 =getActivity().findViewById(R.id.flipper_jumja3);
+        v_fllipper_jumja_4 =getActivity().findViewById(R.id.flipper_jumja4);
+        v_fllipper_jumja_5 =getActivity().findViewById(R.id.flipper_jumja5);
+        v_fllipper_jumja_6 =getActivity().findViewById(R.id.flipper_jumja6);
+        v_fllipper_jumja_7 =getActivity().findViewById(R.id.flipper_jumja7);
+        v_fllipper_jumja_8 =getActivity().findViewById(R.id.flipper_jumja8);
+        v_fllipper_jumja_9 =getActivity().findViewById(R.id.flipper_jumja9);
+        v_fllipper_jumja_10 =getActivity().findViewById(R.id.flipper_jumja10);
+        v_fllipper_jumja_11 =getActivity().findViewById(R.id.flipper_jumja11);
+
+        int displayedChild = v_fllipper_jumja_0.getDisplayedChild(); // 현재 위치 인덱스를 가져옴 "0"
+        int childCount  = v_fllipper_jumja_0.getChildCount(); //전체 아이템 갯수
+
+        stop_Flipper();    /* 뷰플리퍼 멈추기  */
+        remove_Flipper(); /* 다시 분해 버튼 누를 경우 모든 소스 제거 하고 초기 화면만 추가 */
 
         for(int i = 0 ; i < str2.length; i++){
-            final String str3 = str2[i];
+            str4[i] = str2[i];
 
+            for(int j = 0; j < str4[i].length(); j++) {
+
+                int images[] = new int[str4[i].length()];
+                ImageView imageView0 = new ImageView(getContext().getApplicationContext());
+                ImageView imageView1 = new ImageView(getContext().getApplicationContext());
+                ImageView imageView2 = new ImageView(getContext().getApplicationContext());
+                ImageView imageView3 = new ImageView(getContext().getApplicationContext());
+                ImageView imageView4 = new ImageView(getContext().getApplicationContext());
+                ImageView imageView5 = new ImageView(getContext().getApplicationContext());
+                ImageView imageView6 = new ImageView(getContext().getApplicationContext());
+                ImageView imageView7 = new ImageView(getContext().getApplicationContext());
+                ImageView imageView8 = new ImageView(getContext().getApplicationContext());
+                ImageView imageView9 = new ImageView(getContext().getApplicationContext());
+                ImageView imageView10 = new ImageView(getContext().getApplicationContext());
+                ImageView imageView11 = new ImageView(getContext().getApplicationContext());
+
+                int int4 =  Integer.parseInt(str4[i].substring(j,j+1));
+
+                /*  분리하는 과정에서 6자리 + j == 0인 이유 */
+                /*  만약 j== 0를 안 넣어주면 12자리 점자일 경우 점자67891011이 12번 반복됨 */
+                /*  즉, 점자변환기 좌측, 우측이 달라지게 됨  */
+                if(str4[i].length() == 6 && j == 0){
+                    images[j]=R.drawable.white;
+
+                    imageView6.setImageResource(images[j]);
+                    imageView7.setImageResource(images[j]);
+                    imageView8.setImageResource(images[j]);
+                    imageView9.setImageResource(images[j]);
+                    imageView10.setImageResource(images[j]);
+                    imageView11.setImageResource(images[j]);
+
+                    v_fllipper_jumja_6.addView(imageView6);
+                    v_fllipper_jumja_7.addView(imageView7);
+                    v_fllipper_jumja_8.addView(imageView8);
+                    v_fllipper_jumja_9.addView(imageView9);
+                    v_fllipper_jumja_10.addView(imageView10);
+                    v_fllipper_jumja_11.addView(imageView11);
+                }
+
+                /*  스위치문을 사용하여 뷰플리퍼 값 입력   */
+                switch (j){
+                    case 0:
+                        if(int4 ==1){
+                            images[j]=R.drawable.black;
+                            imageView0.setImageResource(images[j]);
+                            v_fllipper_jumja_0.addView(imageView0);
+                        }else if (int4 == 0){
+                            images[j]=R.drawable.white;
+                            imageView0.setImageResource(images[j]);
+                            v_fllipper_jumja_0.addView(imageView0);
+                        }
+                        break;
+                    case 1:
+                        if(int4 ==1){
+                            images[j]=R.drawable.black;
+                            imageView1.setImageResource(images[j]);
+                            v_fllipper_jumja_1.addView(imageView1);
+                        }else if (int4 == 0){
+                            images[j]=R.drawable.white;
+                            imageView1.setImageResource(images[j]);
+                            v_fllipper_jumja_1.addView(imageView1);
+                        }
+                        break;
+                    case 2:
+                        if(int4 ==1){
+                            images[j]=R.drawable.black;
+                            imageView2.setImageResource(images[j]);
+                            v_fllipper_jumja_2.addView(imageView2);
+                        }else if (int4 == 0){
+                            images[j]=R.drawable.white;
+                            imageView2.setImageResource(images[j]);
+                            v_fllipper_jumja_2.addView(imageView2);
+                        }
+                        break;
+                    case 3:
+                        if(int4 ==1){
+                            images[j]=R.drawable.black;
+                            imageView3.setImageResource(images[j]);
+                            v_fllipper_jumja_3.addView(imageView3);
+                        }else if (int4 == 0){
+                            images[j]=R.drawable.white;
+                            imageView3.setImageResource(images[j]);
+                            v_fllipper_jumja_3.addView(imageView3);
+                        }
+                        break;
+                    case 4:
+                        if(int4 ==1){
+                            images[j]=R.drawable.black;
+                            imageView4.setImageResource(images[j]);
+                            v_fllipper_jumja_4.addView(imageView4);
+                        }else if (int4 == 0){
+                            images[j]=R.drawable.white;
+                            imageView4.setImageResource(images[j]);
+                            v_fllipper_jumja_4.addView(imageView4);
+                        }
+                        break;
+                    case 5:
+                        if(int4 ==1){
+                            images[j]=R.drawable.black;
+                            imageView5.setImageResource(images[j]);
+                            v_fllipper_jumja_5.addView(imageView5);
+                        }else if (int4 == 0){
+                            images[j]=R.drawable.white;
+                            imageView5.setImageResource(images[j]);
+                            v_fllipper_jumja_5.addView(imageView5);
+                        }
+                        break;
+                    case 6:
+                        if(int4 ==1){
+                            images[j]=R.drawable.black;
+                            imageView6.setImageResource(images[j]);
+                            v_fllipper_jumja_6.addView(imageView6);
+                        }else if (int4 == 0){
+                            images[j]=R.drawable.white;
+                            imageView6.setImageResource(images[j]);
+                            v_fllipper_jumja_6.addView(imageView6);
+                        }
+                        break;
+                    case 7:
+                        if(int4 ==1){
+                            images[j]=R.drawable.black;
+                            imageView7.setImageResource(images[j]);
+                            v_fllipper_jumja_7.addView(imageView7);
+                        }else if (int4 == 0){
+                            images[j]=R.drawable.white;
+                            imageView7.setImageResource(images[j]);
+                            v_fllipper_jumja_7.addView(imageView7);
+                        }
+                        break;
+                    case 8:
+                        if(int4 ==1){
+                            images[j]=R.drawable.black;
+                            imageView8.setImageResource(images[j]);
+                            v_fllipper_jumja_8.addView(imageView8);
+                        }else if (int4 == 0){
+                            images[j]=R.drawable.white;
+                            imageView8.setImageResource(images[j]);
+                            v_fllipper_jumja_8.addView(imageView8);
+                        }
+                        break;
+                    case 9:
+                        if(int4 ==1){
+                            images[j]=R.drawable.black;
+                            imageView9.setImageResource(images[j]);
+                            v_fllipper_jumja_9.addView(imageView9);
+                        }else if (int4 == 0){
+                            images[j]=R.drawable.white;
+                            imageView9.setImageResource(images[j]);
+                            v_fllipper_jumja_9.addView(imageView9);
+                        }
+                        break;
+                    case 10:
+                        if(int4 ==1){
+                            images[j]=R.drawable.black;
+                            imageView10.setImageResource(images[j]);
+                            v_fllipper_jumja_9.addView(imageView10);
+                        }else if (int4 == 0){
+                            images[j]=R.drawable.white;
+                            imageView10.setImageResource(images[j]);
+                            v_fllipper_jumja_10.addView(imageView10);
+                        }
+                        break;
+                    case 11:
+                        if(int4 ==1){
+                            images[j]=R.drawable.black;
+                            imageView11.setImageResource(images[j]);
+                            v_fllipper_jumja_11.addView(imageView11);
+                        }else if (int4 == 0){
+                            images[j]=R.drawable.white;
+                            imageView11.setImageResource(images[j]);
+                            v_fllipper_jumja_11.addView(imageView11);
+                        }
+                        break;
+                }
+
+
+
+                /*  for문의 j 값이 마지막 인덱스 일때     */
+                if( i == str2.length-1 && j == str4[i].length()-1){
+
+
+
+                   // Toast.makeText(getActivity(),String.valueOf(displayedChild)+"//"+String.valueOf(childCount)+"//"+String.valueOf(i)+"//"+String.valueOf(j),Toast.LENGTH_SHORT).show();
+
+
+
+                    //     displayedChild// childCount
+                    //    3글자         0   4   2   0~5
+                    //    4글자         0   5   3   0~5
+                    //    5글자         0   6   4   0~5
+                    //    i 글자        0  i+1 i-1  0~5
+
+
+
+                }
+            }
+        }
+        change_Flipper();
+
+        if (displayedChild == childCount -1 ) {
+
+            Toast.makeText(getActivity(),(str2.length+1)*2 +"초 후 멈추기",Toast.LENGTH_SHORT).show();
 
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    for(int j = 0; j < str3.length(); j++) {
-                        switch (str3.substring(j, j + 1)) {
-                            case "1":
-                                Jumja[j].setImageResource(R.drawable.black);
-                                break;
-                            case "0":
-                                Jumja[j].setImageResource(R.drawable.white);
-                                break;
-                        }
-
-                    }
+                    stop_Flipper();
+                    remove_Flipper();
                 }
-            },2000);
+            },2000*(str2.length+1));
+
 
         }
 
     }
+
+    /* 다시 분해 버튼 누를 경우 모든 소스 제거 하고 초기 화면만 추가 */
+    public void remove_Flipper(){
+        v_fllipper_jumja_0.removeAllViews();
+        v_fllipper_jumja_1.removeAllViews();
+        v_fllipper_jumja_2.removeAllViews();
+        v_fllipper_jumja_3.removeAllViews();
+        v_fllipper_jumja_4.removeAllViews();
+        v_fllipper_jumja_5.removeAllViews();
+        v_fllipper_jumja_6.removeAllViews();
+        v_fllipper_jumja_7.removeAllViews();
+        v_fllipper_jumja_8.removeAllViews();
+        v_fllipper_jumja_9.removeAllViews();
+        v_fllipper_jumja_10.removeAllViews();
+        v_fllipper_jumja_11.removeAllViews();
+
+        int addWhite = R.drawable.white;
+        ImageView imageView0 = new ImageView(getContext().getApplicationContext());
+        ImageView imageView1 = new ImageView(getContext().getApplicationContext());
+        ImageView imageView2 = new ImageView(getContext().getApplicationContext());
+        ImageView imageView3 = new ImageView(getContext().getApplicationContext());
+        ImageView imageView4 = new ImageView(getContext().getApplicationContext());
+        ImageView imageView5 = new ImageView(getContext().getApplicationContext());
+        ImageView imageView6 = new ImageView(getContext().getApplicationContext());
+        ImageView imageView7 = new ImageView(getContext().getApplicationContext());
+        ImageView imageView8 = new ImageView(getContext().getApplicationContext());
+        ImageView imageView9 = new ImageView(getContext().getApplicationContext());
+        ImageView imageView10 = new ImageView(getContext().getApplicationContext());
+        ImageView imageView11 = new ImageView(getContext().getApplicationContext());
+
+        imageView0.setImageResource(addWhite);
+        imageView1.setImageResource(addWhite);
+        imageView2.setImageResource(addWhite);
+        imageView3.setImageResource(addWhite);
+        imageView4.setImageResource(addWhite);
+        imageView5.setImageResource(addWhite);
+        imageView6.setImageResource(addWhite);
+        imageView7.setImageResource(addWhite);
+        imageView8.setImageResource(addWhite);
+        imageView9.setImageResource(addWhite);
+        imageView10.setImageResource(addWhite);
+        imageView11.setImageResource(addWhite);
+
+
+        v_fllipper_jumja_0.addView(imageView0);
+        v_fllipper_jumja_1.addView(imageView1);
+        v_fllipper_jumja_2.addView(imageView2);
+        v_fllipper_jumja_3.addView(imageView3);
+        v_fllipper_jumja_4.addView(imageView4);
+        v_fllipper_jumja_5.addView(imageView5);
+        v_fllipper_jumja_6.addView(imageView6);
+        v_fllipper_jumja_7.addView(imageView7);
+        v_fllipper_jumja_8.addView(imageView8);
+        v_fllipper_jumja_9.addView(imageView9);
+        v_fllipper_jumja_10.addView(imageView10);
+        v_fllipper_jumja_11.addView(imageView11);
+
+
+
+    }
+
+    /* 뷰플리퍼 멈추기  */
+    public void stop_Flipper(){
+        v_fllipper_jumja_0.stopFlipping();
+        v_fllipper_jumja_1.stopFlipping();
+        v_fllipper_jumja_2.stopFlipping();
+        v_fllipper_jumja_3.stopFlipping();
+        v_fllipper_jumja_4.stopFlipping();
+        v_fllipper_jumja_5.stopFlipping();
+        v_fllipper_jumja_6.stopFlipping();
+        v_fllipper_jumja_7.stopFlipping();
+        v_fllipper_jumja_8.stopFlipping();
+        v_fllipper_jumja_9.stopFlipping();
+        v_fllipper_jumja_10.stopFlipping();
+        v_fllipper_jumja_11.stopFlipping();
+    }
+
+    /* 실질적으로 뷰플리퍼 사용하기 기능 */
+    public void change_Flipper(){
+
+        // 자동 이미지 슬라이드 딜레이시간(1000 당 1초)
+        v_fllipper_jumja_0.setFlipInterval(2000);
+        v_fllipper_jumja_1.setFlipInterval(2000);
+        v_fllipper_jumja_2.setFlipInterval(2000);
+        v_fllipper_jumja_3.setFlipInterval(2000);
+        v_fllipper_jumja_4.setFlipInterval(2000);
+        v_fllipper_jumja_5.setFlipInterval(2000);
+        v_fllipper_jumja_6.setFlipInterval(2000);
+        v_fllipper_jumja_7.setFlipInterval(2000);
+        v_fllipper_jumja_8.setFlipInterval(2000);
+        v_fllipper_jumja_9.setFlipInterval(2000);
+        v_fllipper_jumja_10.setFlipInterval(2000);
+        v_fllipper_jumja_11.setFlipInterval(2000);
+
+        // 자동 시작 유무 설정
+        v_fllipper_jumja_0.setAutoStart(true);
+        v_fllipper_jumja_1.setAutoStart(true);
+        v_fllipper_jumja_2.setAutoStart(true);
+        v_fllipper_jumja_3.setAutoStart(true);
+        v_fllipper_jumja_4.setAutoStart(true);
+        v_fllipper_jumja_5.setAutoStart(true);
+        v_fllipper_jumja_6.setAutoStart(true);
+        v_fllipper_jumja_7.setAutoStart(true);
+        v_fllipper_jumja_8.setAutoStart(true);
+        v_fllipper_jumja_9.setAutoStart(true);
+        v_fllipper_jumja_10.setAutoStart(true);
+        v_fllipper_jumja_11.setAutoStart(true);
+
+        // 시작
+        v_fllipper_jumja_0.startFlipping();
+        v_fllipper_jumja_1.startFlipping();
+        v_fllipper_jumja_2.startFlipping();
+        v_fllipper_jumja_3.startFlipping();
+        v_fllipper_jumja_4.startFlipping();
+        v_fllipper_jumja_5.startFlipping();
+        v_fllipper_jumja_6.startFlipping();
+        v_fllipper_jumja_7.startFlipping();
+        v_fllipper_jumja_8.startFlipping();
+        v_fllipper_jumja_9.startFlipping();
+        v_fllipper_jumja_10.startFlipping();
+        v_fllipper_jumja_11.startFlipping();
+
+        // 애니메이션 시작화면
+        v_fllipper_jumja_0.setInAnimation(getContext().getApplicationContext(),android.R.anim.fade_in);
+        v_fllipper_jumja_1.setInAnimation(getContext().getApplicationContext(),android.R.anim.fade_in);
+        v_fllipper_jumja_2.setInAnimation(getContext().getApplicationContext(),android.R.anim.fade_in);
+        v_fllipper_jumja_3.setInAnimation(getContext().getApplicationContext(),android.R.anim.fade_in);
+        v_fllipper_jumja_4.setInAnimation(getContext().getApplicationContext(),android.R.anim.fade_in);
+        v_fllipper_jumja_5.setInAnimation(getContext().getApplicationContext(),android.R.anim.fade_in);
+        v_fllipper_jumja_6.setInAnimation(getContext().getApplicationContext(),android.R.anim.fade_in);
+        v_fllipper_jumja_7.setInAnimation(getContext().getApplicationContext(),android.R.anim.fade_in);
+        v_fllipper_jumja_8.setInAnimation(getContext().getApplicationContext(),android.R.anim.fade_in);
+        v_fllipper_jumja_9.setInAnimation(getContext().getApplicationContext(),android.R.anim.fade_in);
+        v_fllipper_jumja_10.setInAnimation(getContext().getApplicationContext(),android.R.anim.fade_in);
+        v_fllipper_jumja_11.setInAnimation(getContext().getApplicationContext(),android.R.anim.fade_in);
+
+        //애니메이션 끝 화면
+        v_fllipper_jumja_0.setOutAnimation(getContext().getApplicationContext(),android.R.anim.fade_out);
+        v_fllipper_jumja_1.setOutAnimation(getContext().getApplicationContext(),android.R.anim.fade_out);
+        v_fllipper_jumja_2.setOutAnimation(getContext().getApplicationContext(),android.R.anim.fade_out);
+        v_fllipper_jumja_3.setOutAnimation(getContext().getApplicationContext(),android.R.anim.fade_out);
+        v_fllipper_jumja_4.setOutAnimation(getContext().getApplicationContext(),android.R.anim.fade_out);
+        v_fllipper_jumja_5.setOutAnimation(getContext().getApplicationContext(),android.R.anim.fade_out);
+        v_fllipper_jumja_6.setOutAnimation(getContext().getApplicationContext(),android.R.anim.fade_out);
+        v_fllipper_jumja_7.setOutAnimation(getContext().getApplicationContext(),android.R.anim.fade_out);
+        v_fllipper_jumja_8.setOutAnimation(getContext().getApplicationContext(),android.R.anim.fade_out);
+        v_fllipper_jumja_9.setOutAnimation(getContext().getApplicationContext(),android.R.anim.fade_out);
+        v_fllipper_jumja_10.setOutAnimation(getContext().getApplicationContext(),android.R.anim.fade_out);
+        v_fllipper_jumja_11.setOutAnimation(getContext().getApplicationContext(),android.R.anim.fade_out);
+
+    }
+
 }

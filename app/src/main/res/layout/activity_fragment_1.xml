@@ -31,6 +31,187 @@
                 android:text="분해기"
                 android:id="@+id/Btn1"
                 android:textSize="30dp"></Button>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:orientation="horizontal">
+
+                <ViewFlipper
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:id="@+id/flipper_jumja0">
+                    <ImageView
+                        android:id="@+id/jumja1"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/white" />
+                </ViewFlipper>
+                <ViewFlipper
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:id="@+id/flipper_jumja3">
+                    <ImageView
+                        android:id="@+id/Jumja4"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/white" />
+                </ViewFlipper>
+                <ViewFlipper
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:id="@+id/flipper_jumja6">
+                    <ImageView
+                        android:id="@+id/jumja7"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/white" />
+                </ViewFlipper>
+
+                <ViewFlipper
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:id="@+id/flipper_jumja9">
+                    <ImageView
+                        android:id="@+id/jumja10"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/white" />
+                </ViewFlipper>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:orientation="horizontal">
+
+                <ViewFlipper
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:id="@+id/flipper_jumja1">
+                    <ImageView
+                        android:id="@+id/jumja2"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/white" />
+                </ViewFlipper>
+                <ViewFlipper
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:id="@+id/flipper_jumja4">
+                    <ImageView
+                        android:id="@+id/jumja5"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/white" />
+                </ViewFlipper>
+                <ViewFlipper
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:id="@+id/flipper_jumja7">
+                    <ImageView
+                        android:id="@+id/jumja8"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/white" />
+                </ViewFlipper>
+                <ViewFlipper
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:id="@+id/flipper_jumja10">
+                    <ImageView
+                        android:id="@+id/jumja11"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/white" />
+                </ViewFlipper>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:orientation="horizontal">
+
+                <ViewFlipper
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:id="@+id/flipper_jumja2">
+                    <ImageView
+                        android:id="@+id/jumja3"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/white" />
+                </ViewFlipper>
+                <ViewFlipper
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:id="@+id/flipper_jumja5">
+                    <ImageView
+                        android:id="@+id/jumja6"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/white" />
+                </ViewFlipper>
+                <ViewFlipper
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:id="@+id/flipper_jumja8">
+                    <ImageView
+                        android:id="@+id/jumja9"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/white" />
+                </ViewFlipper>
+                <ViewFlipper
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:id="@+id/flipper_jumja11">
+                    <ImageView
+                        android:id="@+id/jumja12"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/white" />
+
+                </ViewFlipper>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="==================="
+                android:textSize="30dp"></TextView>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -41,7 +222,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="========================"
+                android:text="==================="
                 android:textSize="30dp"></TextView>
 
 
@@ -58,7 +239,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="========================"
+                android:text="==================="
                 android:textSize="30dp"></TextView>
 
             <TextView
@@ -71,113 +252,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="========================"
+                android:text="==================="
                 android:textSize="30dp"></TextView>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/Jumja1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/white" />
-
-                <ImageView
-                    android:id="@+id/Jumja4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/white" />
-
-                <ImageView
-                    android:id="@+id/Jumja7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/white" />
-
-                <ImageView
-                    android:id="@+id/Jumja10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/white" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/Jumja2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/white" />
-
-                <ImageView
-                    android:id="@+id/Jumja5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/white" />
-
-                <ImageView
-                    android:id="@+id/Jumja8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/white" />
-
-                <ImageView
-                    android:id="@+id/Jumja11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/white" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/Jumja3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/white" />
-
-                <ImageView
-                    android:id="@+id/Jumja6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/white" />
-
-                <ImageView
-                    android:id="@+id/Jumja9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/white" />
-
-                <ImageView
-                    android:id="@+id/Jumja12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/white" />
-
-            </LinearLayout>
 
         </LinearLayout>
 
