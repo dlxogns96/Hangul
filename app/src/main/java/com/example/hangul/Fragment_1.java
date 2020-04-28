@@ -244,87 +244,180 @@ if(checkNumber == 0) {
         if (Jumja_JungSung[jungsung] == "011100" && Jumja_JongSung[jongsung] == "100000") {
             /*  <억>   */
             checkYakja = 1;
-            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅓㄱ" + ">>" + "100111" + "\n";
-            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"100111" + "/";
+            if (Jumja_ChoSung[chosung] == "000000") {
+                /** 초성이  ' ㅇ ' 일경우 */
+                result2 = result2 + "억(약자)" + ">>" + "100111" + "\n";
+                result2_Jumja = result2_Jumja + "100111" + "/";
+            }else{
+                result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅓㄱ" + ">>" + "100111" + "\n";
+                result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"100111" + "/";
+            }
         } else if (Jumja_JungSung[jungsung] == "011100" && Jumja_JongSung[jongsung] == "010010") {
             /*  <언>   */
             checkYakja = 1;
-            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅓㄴ" + ">>" + "011111" + "\n";
-            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"011111" + "/";
+            if (Jumja_ChoSung[chosung] == "000000") {
+                /** 초성이  ' ㅇ ' 일경우 */
+                result2 = result2 + "언(약자)" + ">>" + "011111" + "\n";
+                result2_Jumja = result2_Jumja + "011111" + "/";
+            }else{
+                result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅓㄴ" + ">>" + "011111" + "\n";
+                result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"011111" + "/";
+            }
+
         } else if (Jumja_JungSung[jungsung] == "011100" && Jumja_JongSung[jongsung] == "010000") {
             /*  <얼>   */
             checkYakja = 1;
-            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅓㄹ" + ">>" + "011110" + "\n";
-            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"011110" + "/";
+            if (Jumja_ChoSung[chosung] == "000000") {
+                /** 초성이  ' ㅇ ' 일경우 */
+                result2 = result2 + "얼(약자)" + ">>" + "011110" + "\n";
+                result2_Jumja = result2_Jumja + "011110" + "/";
+            }else{
+                result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅓㄹ" + ">>" + "011110" + "\n";
+                result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"011110" + "/";
+            }
         }
 
 /* < 연 열 영 > */
         if (Jumja_JungSung[jungsung] == "100011" && Jumja_JongSung[jongsung] == "010010") {
             /*  <연>   */
             checkYakja = 1;
-            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅕㄴ" + ">>" + "100001" + "\n";
-            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"100001" + "/";
+            if (Jumja_ChoSung[chosung] == "000000") {
+                /** 초성이  ' ㅇ ' 일경우 */
+                result2 = result2 + "연(약자)" + ">>" + "100001" + "\n";
+                result2_Jumja = result2_Jumja + "100001" + "/";
+            }else{
+                result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅕㄴ" + ">>" + "100001" + "\n";
+                result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"100001" + "/";
+            }
+
         } else if (Jumja_JungSung[jungsung] == "100011" && Jumja_JongSung[jongsung] == "010000") {
             /*  <열>  , 종성이 ㅕ 일경우  */
             checkYakja = 1;
-            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅕㄹ" + ">>" + "110011" + "\n";
-            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"110011" + "/";
+            if (Jumja_ChoSung[chosung] == "000000") {
+                /** 초성이  ' ㅇ ' 일경우 */
+                result2 = result2 + "열(약자)" + ">>" + "110011" + "\n";
+                result2_Jumja = result2_Jumja + "110011" + "/";
+            }else{
+                result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅕㄹ" + ">>" + "110011" + "\n";
+                result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"110011" + "/";
+            }
+
         } else if (Jumja_JungSung[jungsung] == "100011" && Jumja_JongSung[jongsung] == "011011") {
             /*  <영>  , 종성이  일경우  */
             checkYakja = 1;
-            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅕㅇ" + ">>" + "110111" + "\n";
-            result2_Jumja = result2_Jumja + Jumja_ChoSung[chosung]+ "/" +"110111" + "/";
+            if (Jumja_ChoSung[chosung] == "000000") {
+                /** 초성이  ' ㅇ ' 일경우 */
+                result2 = result2 + "영(약자)" + ">>" + "110111" + "\n";
+                result2_Jumja = result2_Jumja + "110111" + "/";
+            }else{
+                result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅕㅇ" + ">>" + "110111" + "\n";
+                result2_Jumja = result2_Jumja + Jumja_ChoSung[chosung]+ "/" +"110111" + "/";
+            }
         }
 
  /* < 옥 온 옹 > */
         if (Jumja_JungSung[jungsung] == "101001" && Jumja_JongSung[jongsung] == "100000") {
             /*  <옥>    */
             checkYakja = 1;
-            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅗㄱ" + ">>" + "101101" + "\n";
-            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"101101" + "/";
+            if (Jumja_ChoSung[chosung] == "000000") {
+                /** 초성이  ' ㅇ ' 일경우 */
+                result2 = result2 + "옥(약자)" + ">>" + "101101" + "\n";
+                result2_Jumja = result2_Jumja + "101101" + "/";
+            }else{
+                result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅗㄱ" + ">>" + "101101" + "\n";
+                result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"101101" + "/";
+            }
+
         } else if (Jumja_JungSung[jungsung] == "101001" && Jumja_JongSung[jongsung] == "010010") {
             /*  <온>    */
             checkYakja = 1;
-            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅗㄴ" + ">>" + "111011" + "\n";
-            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"111011" + "/";
+            if (Jumja_ChoSung[chosung] == "000000") {
+                /** 초성이  ' ㅇ ' 일경우 */
+                result2 = result2 + "온(약자)" + ">>" + "111011" + "\n";
+                result2_Jumja = result2_Jumja + "111011" + "/";
+            }else{
+                result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅗㄴ" + ">>" + "111011" + "\n";
+                result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"111011" + "/";
+            }
+
         } else if (Jumja_JungSung[jungsung] == "101001" && Jumja_JongSung[jongsung] == "011011") {
             /*  <옹>    */
             checkYakja = 1;
-            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅗㅇ" + ">>" + "111111" + "\n";
-            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"111111" + "/";
+            if (Jumja_ChoSung[chosung] == "000000") {
+                /** 초성이  ' ㅇ ' 일경우 */
+                result2 = result2 + "옹(약자)" + ">>" + "111111" + "\n";
+                result2_Jumja = result2_Jumja + "111111" + "/";
+            }else{
+                result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅗㅇ" + ">>" + "111111" + "\n";
+                result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"111111" + "/";
+            }
         }
 
  /* < 운 울 > */
         if (Jumja_JungSung[jungsung] == "101100" && Jumja_JongSung[jongsung] == "010010") {
             /*  <운>    */
             checkYakja = 1;
-            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅜㄴ" + ">>" + "110110" + "\n";
-            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"110110" + "/";
+            if (Jumja_ChoSung[chosung] == "000000") {
+                /** 초성이  ' ㅇ ' 일경우 */
+                result2 = result2 + "운(약자)" + ">>" + "110110" + "\n";
+                result2_Jumja = result2_Jumja + "110110" + "/";
+            }else{
+                result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅜㄴ" + ">>" + "110110" + "\n";
+                result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"110110" + "/";
+            }
+
         } else if (Jumja_JungSung[jungsung] == "101100" && Jumja_JongSung[jongsung] == "010000") {
             /*  <울>    */
             checkYakja = 1;
-            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅜㄹ" + ">>" + "111101" + "\n";
-            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"111101" + "/";
+            if (Jumja_ChoSung[chosung] == "000000") {
+                /** 초성이  ' ㅇ ' 일경우 */
+                result2 = result2 + "울(약자)" + ">>" + "111101" + "\n";
+                result2_Jumja = result2_Jumja + "111101" + "/";
+            }else{
+                result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅜㄹ" + ">>" + "111101" + "\n";
+                result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"111101" + "/";
+            }
         }
 
  /* < 은 을 > */
         if (Jumja_JungSung[jungsung] == "010101" && Jumja_JongSung[jongsung] == "010010") {
             /*  <은>    */
             checkYakja = 1;
-            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅡㄴ" + ">>" + "101011" + "\n";
-            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"101011" + "/";
+            if (Jumja_ChoSung[chosung] == "000000") {
+                /** 초성이  ' ㅇ ' 일경우 */
+                result2 = result2 + "은(약자)" + ">>" + "101011" + "\n";
+                result2_Jumja = result2_Jumja + "101011" + "/";
+            }else{
+                result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅡㄴ" + ">>" + "101011" + "\n";
+                result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"101011" + "/";
+            }
+
         } else if (Jumja_JungSung[jungsung] == "010101" && Jumja_JongSung[jongsung] == "010000") {
             /*  <을>    */
             checkYakja = 1;
-            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅡㄹ" + ">>" + "011101" + "\n";
-            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"011101" + "/";
+            if (Jumja_ChoSung[chosung] == "000000") {
+                /** 초성이  ' ㅇ ' 일경우 */
+                result2 = result2 + "을(약자)" + ">>" + "011101" + "\n";
+                result2_Jumja = result2_Jumja + "011101" + "/";
+            }else{
+                result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅡㄹ" + ">>" + "011101" + "\n";
+                result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"011101" + "/";
+            }
+
         }
 
 /* < 인 > */
         else if (Jumja_JungSung[jungsung] == "101010" && Jumja_JongSung[jongsung] == "010010") {
             checkYakja = 1;
-            result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅣㄴ" + ">>" + "111110" + "\n";
-            result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"111110" + "/";
+            if (Jumja_ChoSung[chosung] == "000000") {
+                /** 초성이  ' ㅇ ' 일경우 */
+                result2 = result2 + "인(약자)" + ">>" + "111110" + "\n";
+                result2_Jumja = result2_Jumja + "111110" + "/";
+            }else{
+                result2 = result2 + arrChoSung[chosung] + ">>" + Jumja_ChoSung[chosung] + "\n" + "ㅣㄴ" + ">>" + "111110" + "\n";
+                result2_Jumja = result2_Jumja+ Jumja_ChoSung[chosung]+ "/" +"111110" + "/";
+            }
+
         } else {
 /* 약자 외 */
             if (checkYakja == 0) {
@@ -602,27 +695,6 @@ if(checkNumber == 0) {
                             v_fllipper_jumja_11.addView(imageView11);
                         }
                         break;
-                }
-
-
-
-                /*  for문의 j 값이 마지막 인덱스 일때     */
-                if( i == str2.length-1 && j == str4[i].length()-1){
-
-
-
-                   // Toast.makeText(getActivity(),String.valueOf(displayedChild)+"//"+String.valueOf(childCount)+"//"+String.valueOf(i)+"//"+String.valueOf(j),Toast.LENGTH_SHORT).show();
-
-
-
-                    //     displayedChild// childCount
-                    //    3글자         0   4   2   0~5
-                    //    4글자         0   5   3   0~5
-                    //    5글자         0   6   4   0~5
-                    //    i 글자        0  i+1 i-1  0~5
-
-
-
                 }
             }
         }
