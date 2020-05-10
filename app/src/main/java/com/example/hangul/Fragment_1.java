@@ -498,7 +498,7 @@ if(checkNumber == 0) {
         }
     } else {
 /*  한글이 아니거나 자음만 있을경우 */
-        result2 = result2 + ((char) (chars + 0xAC00));
+      //  result2 = result2 + ((char) (chars + 0xAC00));
     }//if
 }
 
