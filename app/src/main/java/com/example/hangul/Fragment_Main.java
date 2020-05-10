@@ -20,7 +20,6 @@ public class Fragment_Main extends AppCompatActivity {
     // 4개의 메뉴에 들어갈 Fragment들
     private Fragment_1 menu1Fragment = new Fragment_1();
     private Fragment_2 menu2Fragment = new Fragment_2();
-    private Fragment_3 menu3Fragment = new Fragment_3();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +46,8 @@ public class Fragment_Main extends AppCompatActivity {
                     }
                     case R.id.navigation_menu2: {
                         transaction.replace(R.id.frame_layout, menu2Fragment).commitAllowingStateLoss();
-                        ab.setTitle("상태"); //제목 바꾸기
+                        ab.setTitle("텍스트"); //제목 바꾸기
 
-                        break;
-                    }
-                    case R.id.navigation_menu3: {
-                        transaction.replace(R.id.frame_layout, menu3Fragment).commitAllowingStateLoss();
-                        ab.setTitle("설정"); //제목 바꾸기
                         break;
                     }
                 }

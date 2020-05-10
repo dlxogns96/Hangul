@@ -15,6 +15,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
 public class Fragment_1 extends Fragment {
 
     EditText editText1;
@@ -28,6 +32,7 @@ public class Fragment_1 extends Fragment {
 
     TextView Jumja_Word;
 
+    InputStream inputStream;
 
     ViewFlipper v_fllipper_jumja_0;
     ViewFlipper v_fllipper_jumja_1;
@@ -47,21 +52,59 @@ public class Fragment_1 extends Fragment {
         View view = inflater.inflate(R.layout.activity_fragment_1, container, false);
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.activity_fragment_1, container, false);
 
-        Button Btn1 = (Button)rootView.findViewById(R.id.Btn1);
-        Btn1.setOnClickListener(new View.OnClickListener() {
+
+        Orignal_Word = (TextView)rootView.findViewById(R.id.OriginalWord);
+        editText1 = (EditText)rootView.findViewById(R.id.EditText);
+
+        Button Cut_Btn = (Button)rootView.findViewById(R.id.CutBtn);
+        Button load_Btn = (Button)rootView.findViewById(R.id.loadBtn);
+        Cut_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    ChangeTextView1();
+                    ChangeTextView1(editText1.getText().toString());
+            }
+        });
+        load_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              // load_Original_Txt();
+                Orignal_Word.setText(load_Original_Txt());
 
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
             }
         });
 
+
         return rootView;
     }
+
+    /* < 원본단위 > raw파일 안 그대로 불러오기 */
+    private String load_Original_Txt(){
+
+        String data= null;
+        inputStream = getResources().openRawResource(R.raw.test1);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+
+        try{
+            int i= inputStream.read();
+            while(i != -1){
+                byteArrayOutputStream.write(i);
+                i = inputStream.read();
+            }
+
+            data = new String(byteArrayOutputStream.toByteArray(), "MS949");
+            Toast.makeText(getActivity(),"텍스트파일를 불러오기에 성공했습니다.",Toast.LENGTH_SHORT).show();
+
+            inputStream.close();
+        }catch (IOException e){
+            Toast.makeText(getActivity(),"텍스트파일를 불러오지 못했습니다.",Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+
+        ChangeTextView1(data);
+        return  data;
+
+    }
+
     /* **********************************************
      * 자음 모음 분리
      * 설연수 -> ㅅㅓㄹㅇㅕㄴㅅㅜ,    바보 -> ㅂㅏㅂㅗ
@@ -112,27 +155,6 @@ public class Fragment_1 extends Fragment {
     public static String[] Jumja_Yakja_Chosung = {
             "110101" ,"000001110101", "100100" , "010100","000001010100", "000010110001", " 100010", "000110","000001000110","111000","000001111000","110001","000101","000001000101","000011110001","110100","110010","100110","010110"
     };
-    /**  억 언 얼 연 열 영 */
-    /**  옥 온 옹 운 울 은 을 인 */
-    /** 그래서 그러나 그러면 그러므로 그런데 그리고 그리하여 */
-    /** ㅆ받침 */
-    public static String[] Jumja_Yakja_o = {
-            "100111","011111","011110","100001","110011","110111",
-            "101101", "111011","111111","110110","111101","101011","011101","111110",
-
-            "100000011100","100000100100","100000010010","100000010001","100000101110","100000101001","100000100011",
-            "001100"
-    };
-    /** 것  */
-    public static String[] Jumja_Yakja_rjt = {
-                    "000111011100"
-            };
-
-    /** 0 1 2 3 4 5 6 7 8 9 */
-    public static String[] arrNumber = { "0","1","2","3","4","5","6","7","8","9"};
-    public static char[] arrNumber2 = { 0x48,0x49,0x50,0x51,0x52,0x53,0x54,0x55,0x56,0x57};
-
-
 
     /** 0 1 2 3 4 5 6 7 8 9   */
     public static String[] Jumja_Yakja_Number = {
@@ -140,20 +162,15 @@ public class Fragment_1 extends Fragment {
     };
 
 
-
-    public void ChangeTextView1() throws InterruptedException {
-
+    public void ChangeTextView1(String str1) {
         editText1 = (EditText)getActivity().findViewById(R.id.EditText);
         Orignal_Word = (TextView)getActivity().findViewById(R.id.OriginalWord);
         Changed_Word = (TextView)getActivity().findViewById(R.id.ChangedWord_word);
-
         Jumja_Word = (TextView)getActivity().findViewById(R.id.JumjaWord);
-
-         str1= editText1.getText().toString();
 
          word 		= str1;		// 분리할 단어
          result2 = "";
-        result2_Jumja = "";
+         result2_Jumja = "";
 
         int checkYakja = 0; // 약자 사용 체크 용 변수
         int checkNumber = 0; // 숫자 사용 체크 용 변수
@@ -486,6 +503,8 @@ if(checkNumber == 0) {
 }
 
  }//for
+
+        /* 분리된 문자를 보여주기 표현 */
         Orignal_Word.setText(word);
         Changed_Word.setText(result2);
         Jumja_Word.setText(result2_Jumja);
@@ -702,7 +721,7 @@ if(checkNumber == 0) {
 
         if (displayedChild == childCount -1 ) {
 
-            Toast.makeText(getActivity(),(str2.length+1)*2 +"초 후 멈추기",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(),"약"+(str2.length+1)*2 +"초 후 멈추기",Toast.LENGTH_SHORT).show();
 
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -713,9 +732,7 @@ if(checkNumber == 0) {
                 }
             },2000*(str2.length+1));
 
-
         }
-
     }
 
     /* 다시 분해 버튼 누를 경우 모든 소스 제거 하고 초기 화면만 추가 */

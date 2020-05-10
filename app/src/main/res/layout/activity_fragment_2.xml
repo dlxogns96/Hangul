@@ -1,9 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Fragment_2">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:text="분리할 단위를 골라주세요" />
+
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <RadioButton
+            android:id="@+id/RadioBtn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="문장 단위"
+            android:textSize="25dp"></RadioButton>
+        <RadioButton
+            android:id="@+id/RadioBtn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="원본 단위"
+            android:textSize="25dp"></RadioButton>
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/txtFileBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="파일 불러오기" />
+
+    <TextView
+        android:id="@+id/txtFileTextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="TextView" />
+        </LinearLayout>
+</ScrollView>
+
+</LinearLayout>

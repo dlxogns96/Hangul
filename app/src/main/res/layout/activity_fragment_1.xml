@@ -25,13 +25,28 @@
                 android:textSize="30dp"
                 ></androidx.appcompat.widget.AppCompatEditText>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="분해기"
-                android:id="@+id/Btn1"
-                android:textSize="30dp"></Button>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="2">
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="분해하기"
+                android:layout_weight="1"
+                android:id="@+id/CutBtn"
+                android:textSize="25dp"></Button>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="파일불러오기"
+                android:layout_weight="1"
+                android:id="@+id/loadBtn"
+                android:textSize="25dp"></Button>
+
+        </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -209,51 +224,47 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="==================="
+                android:text="[원본]"
+                android:gravity="center"
                 android:textSize="30dp"></TextView>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="단어"
+                android:text="원본"
                 android:id="@+id/OriginalWord"
-                android:textSize="30dp"></TextView>
+                android:gravity="center"
+                android:textSize="20dp"></TextView>
+
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="==================="
+                android:text="[자음,모음,숫자 분리]"
+                android:gravity="center"
                 android:textSize="30dp"></TextView>
-
-
 
                 <TextView
                     android:id="@+id/ChangedWord_word"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="자음분리"
+                    android:gravity="center"
                     android:textSize="20dp"></TextView>
-
-
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="==================="
+                android:text="[전송용 점자 모음]"
+                android:gravity="center"
                 android:textSize="30dp"></TextView>
 
             <TextView
                 android:id="@+id/JumjaWord"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="한 글자씩 표시"
+                android:text="전송용 점자 모음"
                 android:textSize="20dp"></TextView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="==================="
-                android:textSize="30dp"></TextView>
 
         </LinearLayout>
 

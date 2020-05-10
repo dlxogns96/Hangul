@@ -19,13 +19,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/EditText"
         android:text="분해기"
-        android:id="@+id/Btn1"
+        android:id="@+id/CutBtn"
         android:textSize="30dp"></Button>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="단어"
-        android:layout_below="@id/Btn1"
+        android:layout_below="@id/CutBtn"
         android:id="@+id/OriginalWord"
         android:textSize="30dp"></TextView>
 
